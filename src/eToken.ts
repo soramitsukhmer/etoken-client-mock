@@ -35,6 +35,7 @@ export async function eTokenSocketHandler(sock: WebSocket) {
       } else if (isWebSocketCloseEvent(ev)) {
         const { code, reason } = ev;
         console.log("ws:close", code, reason);
+        Deno.exit(0)
       }
     }
 
