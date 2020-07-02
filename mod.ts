@@ -8,7 +8,7 @@ import {
 } from "https://deno.land/std/ws/mod.ts";
 import { blue, green, red, yellow } from "https://deno.land/std/fmt/colors.ts";
 
-import { eTokenSocketHandler } from "./src/etoken.ts";
+import { eTokenSocketHandler } from "./src/eToken.ts";
 
 function errorHandler(req: any) {
   return async function(err: any) {
