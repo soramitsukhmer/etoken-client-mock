@@ -15,4 +15,4 @@ $ make run
 ```
 
 ## License
-Licensed under (MIT)[LICENSE]
+Licensed under [MIT](LICENSE)
