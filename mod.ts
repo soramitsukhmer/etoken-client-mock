@@ -1,4 +1,4 @@
-import { serve } from "https://deno.land/std/http/server.ts";
+import { serve, Server } from "https://deno.land/std/http/server.ts";
 import {
   acceptable,
   acceptWebSocket,
@@ -17,12 +17,25 @@ function errorHandler(req: any) {
   }
 }
 
+function shutdownServer(server: Server) {
+  return function() {
+    server.close()
+    Deno.exit(0);
+  }
+}
+
 if (import.meta.main) {
   const port = Deno.args[0] || "44331";
   const server = serve(`:${port}`);
   const ws_path = '/token'
 
   console.log(yellow(`ws server is running on ws://localhost:${port}${ws_path}`));
+
+  const sigint = Deno.signals.interrupt()
+  const sigterm = Deno.signals.terminate();
+
+  sigint.then(shutdownServer(server));
+  sigterm.then(shutdownServer(server));
 
   for await (const req of server) {
     if (req.url === ws_path) {
