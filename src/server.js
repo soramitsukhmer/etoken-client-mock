@@ -32,6 +32,14 @@ function createMockServer() {
             logger.request(message, payload)
         });
     });
+
+    const clientShutdown = () => {
+        console.log('\n')
+        wss.close(() => console.log('WebSocket server closed.'))
+    }
+
+    process.on('SIGTERM', clientShutdown)
+    process.on('SIGINT', clientShutdown)
 }
 
 function loadPrivateKey(key = 'keypairs/private.pem') {
