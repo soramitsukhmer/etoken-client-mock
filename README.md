@@ -1,17 +1,17 @@
-# SafeNet eToken WebSocket mock server
+# SafeNet eToken mock client
 
-Mock WebSocket Server for SafeNet eToken
+SafeNet eToken mock client
 
 ## Local Usage
 
-**Build the container**:
+**Generate a new keypair**:
 ```sh
-$ make
+$ make cert
 ```
 
 **Build and run the container locally**:
 ```sh
-$ make run
+$ make client
 ```
 
 ## License
