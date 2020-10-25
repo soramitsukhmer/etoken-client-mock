@@ -1,6 +1,6 @@
 main: cert server
 
-server:
+client:
 	@node index.js
 
 cert:
