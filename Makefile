@@ -1,5 +1,3 @@
-main: cert server
-
 client:
 	@node index.js
 
